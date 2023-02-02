@@ -1,12 +1,6 @@
-<!--
- * @Author: qiye
- * @LastEditors: qiye
- * @description: page description
- * @Date: 2023-01-09 13:53:38
- * @LastEditTime: 2023-01-09 13:54:17
--->
+
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+
 </script>
 
 <template>
@@ -18,8 +12,9 @@ import HelloWorld from './components/HelloWorld.vue'
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
       Hello mo admin
     </a>
+    <el-button>test</el-button>
   </div>
-  <HelloWorld msg="Vite + Vue" />
+  
 </template>
 
 <style scoped>
