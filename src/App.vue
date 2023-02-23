@@ -1,7 +1,4 @@
-
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div>
@@ -14,7 +11,6 @@
     </a>
     <el-button>test</el-button>
   </div>
-  
 </template>
 
 <style scoped>
