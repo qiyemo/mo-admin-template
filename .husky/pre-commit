@@ -1,4 +1,12 @@
+###
+ # @Author: qiye
+ # @LastEditors: qiye
+ # @description: page description
+ # @Date: 2023-05-26 13:55:07
+ # @LastEditTime: 2023-05-26 14:01:04
+### 
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-# pnpm lint
+pnpm prettier
+pnpm lint
