@@ -1,28 +1,16 @@
+<!--
+ * @Author: qiye
+ * @LastEditors: qiye
+ * @description: 入口文件
+ * @Date: 2023-04-07 10:08:43
+ * @LastEditTime: 2023-05-26 11:47:03
+-->
 <script setup lang="ts"></script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-      Hello mo admin
-    </a>
-    <el-button>test</el-button>
+  <div class="app-container">
+    <router-view></router-view>
   </div>
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+<style scoped></style>

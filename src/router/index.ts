@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import { routeBase } from '@/utils';
 
 export const routes = [
@@ -10,6 +10,14 @@ export const routes = [
     path: '/login',
     name: 'login',
     component: () => import('@/views/login/index.vue'),
+    meta: {
+      requiresAuth: false,
+    },
+  },
+  {
+    path: '/demo',
+    name: 'demo',
+    component: () => import('@/views/demo/index.vue'),
     meta: {
       requiresAuth: false,
     },
