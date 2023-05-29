@@ -4,13 +4,15 @@ import { RouteRecordNormalized } from 'vue-router';
 import { TreeUtils } from 'motl';
 import { routes } from '@/router';
 import defaultSettings from '@/config/settings.json';
-import { AppState, IServerMenu, IUIMenu } from './types';
 import { getToken } from '@/utils/auth';
 import { listMenu } from '@/api/login';
+import { AppState, IServerMenu, IUIMenu } from './types';
 
 class TypeEnum {
   static FOLDER = '0';
+
   static MENU = '1';
+
   static BUTTON = '2';
 }
 /**
@@ -18,6 +20,7 @@ class TypeEnum {
  */
 class ExhibitEnum {
   static HIDDEN = '0';
+
   static VISIBLE = '1';
 }
 
@@ -39,9 +42,8 @@ const findFirstMenuPath = (tree: any[]): string => {
   for (const item of tree) {
     if (isLeaf(item)) {
       return item.path;
-    } else {
-      return findFirstMenuPath(item.children);
     }
+    return findFirstMenuPath(item.children);
   }
   return '';
 };
@@ -116,7 +118,7 @@ const useAppStore = defineStore('app', {
 
   actions: {
     currentMenu(router: any): IServerMenu | null {
-      const currentRoute = router.currentRoute;
+      const { currentRoute } = router;
       const currentMenu: IServerMenu | undefined | null = this.getMenuByPath(currentRoute.value.fullPath);
       if (!currentMenu) {
         return null;
@@ -193,7 +195,7 @@ const useAppStore = defineStore('app', {
     },
 
     hasPermission(route: any): boolean {
-      return this.getMenuByPath(route.fullPath) ? true : false;
+      return !!this.getMenuByPath(route.fullPath);
     },
 
     getMenuByPath(path: string): IServerMenu | null {
@@ -322,11 +324,10 @@ const useAppStore = defineStore('app', {
         return {
           to: defaultPath,
         };
-      } else {
-        return {
-          to: undefined,
-        };
       }
+      return {
+        to: undefined,
+      };
     },
 
     findRouteRecord(fullPath: string): RouteRecordNormalized | undefined {

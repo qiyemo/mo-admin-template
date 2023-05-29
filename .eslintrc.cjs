@@ -1,3 +1,10 @@
+/*
+ * @Author: qiye
+ * @LastEditors: qiye
+ * @description: page description
+ * @Date: 2023-04-07 10:08:43
+ * @LastEditTime: 2023-05-26 16:04:16
+ */
 module.exports = {
   root: true,
   env: {
@@ -11,7 +18,7 @@ module.exports = {
     'plugin:vue/vue3-essential',
     'plugin:@typescript-eslint/recommended',
     'eslint-config-prettier',
-    //1.继承.prettierrc.js文件规则  2.开启rules的 "prettier/prettier": "error"  3.eslint fix的同时执行prettier格式化
+    // 1.继承.prettierrc.js文件规则  2.开启rules的 "prettier/prettier": "error"  3.eslint fix的同时执行prettier格式化
     'plugin:prettier/recommended',
     './.eslintrc-auto-import.json',
   ],

@@ -1,7 +1,15 @@
+/*
+ * @Author: qiye
+ * @LastEditors: qiye
+ * @description: page description
+ * @Date: 2023-04-07 10:08:43
+ * @LastEditTime: 2023-05-26 17:23:41
+ */
 import { defineStore } from 'pinia';
-import { UserState } from './types';
 import { LoginData, login as doLogin, logout as doLogout, getUserInfo } from '@/api/login';
 import { setToken, clearToken, clearStorage } from '@/utils/auth';
+import { UserState } from './types';
+import { useAppStore } from '@/store';
 
 const useUserStore = defineStore('user', {
   state: (): UserState => ({
@@ -50,7 +58,9 @@ const useUserStore = defineStore('user', {
         setToken(res.data.token);
         // 获取用户基本信息
         await this.info();
-        // 在登录页面，获取用户权限信息 【菜单】
+        // 获取用户权限信息 【菜单】
+        const appStore = useAppStore();
+        await appStore.fetchServerMenuConfig();
       } catch (err) {
         clearToken();
         throw err;

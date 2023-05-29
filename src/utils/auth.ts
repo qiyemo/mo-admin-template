@@ -1,4 +1,4 @@
-const TOKEN_KEY = 'hs-token';
+const TOKEN_KEY = 'token';
 
 const isLogin = () => {
   return !!localStorage.getItem(TOKEN_KEY);

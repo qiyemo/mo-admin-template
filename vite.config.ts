@@ -3,7 +3,7 @@
  * @LastEditors: qiye
  * @description: page description
  * @Date: 2023-01-09 13:53:38
- * @LastEditTime: 2023-01-09 13:55:26
+ * @LastEditTime: 2023-05-29 15:58:43
  */
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
@@ -19,6 +19,7 @@ export default async ({ mode, command }) => {
     plugins: [
       vue(),
       AutoImport({
+        resolvers: [ElementPlusResolver()],
         imports: ['vue'],
         dirs: ['./src/utils/global'],
         dts: './src/auto-imports.d.ts',

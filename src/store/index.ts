@@ -1,11 +1,10 @@
 import { createPinia } from 'pinia';
-import useAppStore from './modules/app';
-import useUserStore from './modules/user';
 import { Raw, markRaw } from 'vue';
 import { Router } from 'vue-router';
 import router from '@/router';
+import useUserStore from './modules/user';
+import useAppStore from './modules/app';
 
-import 'pinia';
 declare module 'pinia' {
   export interface PiniaCustomProperties {
     set $router(value: Raw<Router>);
