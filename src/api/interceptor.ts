@@ -3,12 +3,11 @@
  * @LastEditors: qiye
  * @description: page description
  * @Date: 2023-01-04 16:36:49
- * @LastEditTime: 2023-05-29 16:59:25
+ * @LastEditTime: 2023-05-30 09:52:16
  */
 import axios from 'axios';
 import type { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { getToken } from '@/utils/auth';
-import { Response } from '@/types/global';
 import router from '@/router';
 import { IsUtils, ObjectUtils } from 'motl';
 
@@ -18,13 +17,13 @@ const { emptyStrToNull } = ObjectUtils;
 export interface HttpResponse<Response> {
   status: number;
   msg: string;
-  code: number;
+  code: string;
   data: Response;
 }
 
 const LOGIN_URL = '/system/login';
 const BASE_URL_WHITE_LIST: string[] = [];
-const TOKEN_FAILD: number[] = [1014, 1012, 1010, 1005];
+const TOKEN_FAILD: string[] = ['401'];
 
 if (import.meta.env.VITE_API_BASE_URL) {
   axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL;
@@ -79,7 +78,7 @@ axios.interceptors.response.use(
 
     const res = response.data;
     // 如果不是返回 200 则提示错误信息
-    if (res.code !== 200) {
+    if (res.code !== '200') {
       if (TOKEN_FAILD.includes(res.code)) {
         $Message.info('token失效 重新登录');
         toLogin();

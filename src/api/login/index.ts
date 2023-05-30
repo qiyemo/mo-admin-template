@@ -3,7 +3,7 @@
  * @LastEditors: qiye
  * @description: page description
  * @Date: 2023-04-07 10:08:43
- * @LastEditTime: 2023-05-26 19:04:36
+ * @LastEditTime: 2023-05-30 09:57:44
  */
 import axios from 'axios';
 
@@ -17,4 +17,4 @@ export const logout = (): Promise<any> => axios.delete('/system/logout');
 
 export const getUserInfo = (): Promise<any> => axios.get('/system/current-user-info');
 
-export const listMenu = (): Promise<any> => axios.get('/user/config/current/menu/list');
+export const listMenu = (): Promise<any> => axios.get('/system/list-menu');
